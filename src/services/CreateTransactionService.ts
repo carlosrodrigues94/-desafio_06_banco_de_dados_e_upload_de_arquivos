@@ -40,8 +40,6 @@ class CreateTransactionService {
 
     const transactions_balance = await transactionRepository.getBalance();
 
-    console.log(transactions_balance.outcome);
-
     if (type === 'outcome' && value > transactions_balance.income) {
       throw new AppError('Error, this value for outcome is not permitted', 400);
     }
